@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <input>
+        <net-file value="../network/test_network_signal.net.xml"/>
+        <route-files value="../routes/test_routes.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="../output/baseline_tripinfo.xml"/>
+        <emission-output value="../output/baseline_emission.xml"/>
+        <summary-output value="../output/baseline_summary.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+    </time>
+
+</configuration>

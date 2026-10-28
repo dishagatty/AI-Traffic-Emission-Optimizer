@@ -1,0 +1,36 @@
+Road_Name,Reference_Year,Scenario_Level,Scenario_Multiplier,Base_Daily_Vehicle_Count,Traffic_Volume,Average_Hourly_Vehicle_Count,Base_Total_PCU,PCU,Peak_Hour,Peak_Hour_Volume,Peak_Hour_PCU,Road_Capacity_PCU,VC_Ratio,Estimated_Speed_kmph,Delay_Index,Congestion_Level,Data_Type,Source
+Balmatta Road two way,2018,Low,0.6,58844,34863,1452.62,72868.0,43172.28,9:00-10:00 am,3445,4304.9,3000,1.435,26.2,1.718,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Balmatta Road two way,2018,Normal,0.8,58844,49197,2049.88,72868.0,60921.81,9:00-10:00 am,4862,6074.79,3000,2.025,22.36,2.013,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Balmatta Road two way,2018,Peak,1.0,58844,60209,2508.71,72868.0,74558.49,9:00-10:00 am,5950,7434.57,3000,2.478,20.1,2.239,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Balmatta Road two way,2018,High,1.2,58844,71309,2971.21,72868.0,88304.29,9:00-10:00 am,7047,8805.22,3000,2.935,18.24,2.467,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Balmatta Road two way,2018,Very_High,1.4,58844,79548,3314.5,72868.0,98506.07,9:00-10:00 am,7861,9822.49,3000,3.274,17.06,2.638,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Mother Theresa Road,2018,Low,0.6,30647,17756,739.83,37928.0,21973.95,11:00 am-12:00 pm,1804,2264.14,3000,0.755,32.67,1.377,High,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Mother Theresa Road,2018,Normal,0.8,30647,23434,976.42,37928.0,29001.52,11:00 am-12:00 pm,2380,2988.24,3000,0.996,30.04,1.498,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Mother Theresa Road,2018,Peak,1.0,30647,31769,1323.71,37928.0,39316.83,11:00 am-12:00 pm,3227,4051.1,3000,1.35,26.87,1.675,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Mother Theresa Road,2018,High,1.2,30647,37148,1547.83,37928.0,45973.81,11:00 am-12:00 pm,3773,4737.02,3000,1.579,25.15,1.789,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Mother Theresa Road,2018,Very_High,1.4,30647,43799,1824.96,37928.0,54204.05,11:00 am-12:00 pm,4449,5585.04,3000,1.862,23.3,1.931,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road,2018,Low,0.6,16339,9333,388.88,19646.0,11222.48,9:00-10:00 am,962,1169.89,3000,0.39,37.66,1.195,Low,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road,2018,Normal,0.8,16339,13685,570.21,19646.0,16455.35,9:00-10:00 am,1411,1715.39,3000,0.572,34.99,1.286,Moderate,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road,2018,Peak,1.0,16339,16882,703.42,19646.0,20299.12,9:00-10:00 am,1740,2116.08,3000,0.705,33.27,1.353,High,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road,2018,High,1.2,16339,19043,793.46,19646.0,22897.03,9:00-10:00 am,1963,2386.9,3000,0.796,32.19,1.398,High,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road,2018,Very_High,1.4,16339,22147,922.79,19646.0,26629.28,9:00-10:00 am,2283,2775.97,3000,0.925,30.77,1.462,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road near City Point,2018,Low,0.6,30033,17449,727.04,33329.0,19364.29,10:00-11:00 am,1640,1785.43,3000,0.595,34.68,1.298,Moderate,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road near City Point,2018,Normal,0.8,30033,23556,981.5,33329.0,26141.25,10:00-11:00 am,2213,2410.27,3000,0.803,32.11,1.401,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road near City Point,2018,Peak,1.0,30033,30107,1254.46,33329.0,33411.51,10:00-11:00 am,2829,3080.61,3000,1.027,29.73,1.514,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road near City Point,2018,High,1.2,30033,35794,1491.42,33329.0,39722.62,10:00-11:00 am,3363,3662.5,3000,1.221,27.94,1.611,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KS Rao Road near City Point,2018,Very_High,1.4,30033,41168,1715.33,33329.0,45686.46,10:00-11:00 am,3868,4212.38,3000,1.404,26.44,1.702,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KRR Road,2018,Low,0.6,46214,28039,1168.29,53896.0,32699.31,4:00-5:00 am,2588,3020.81,3000,1.007,29.93,1.504,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KRR Road,2018,Normal,0.8,46214,35638,1484.92,53896.0,41562.41,4:00-5:00 am,3290,3839.6,3000,1.28,27.44,1.64,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KRR Road,2018,Peak,1.0,46214,45253,1885.54,53896.0,52775.74,4:00-5:00 am,4177,4875.51,3000,1.625,24.83,1.812,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KRR Road,2018,High,1.2,46214,54716,2279.83,53896.0,63810.89,4:00-5:00 am,5051,5894.95,3000,1.965,22.7,1.982,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+KRR Road,2018,Very_High,1.4,46214,64415,2683.96,53896.0,75122.93,4:00-5:00 am,5946,6939.98,3000,2.313,20.87,2.156,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Bunts Hostel Road,2018,Low,0.6,57539,35508,1479.5,68684.0,42385.62,9:00-10:00 am,3014,3628.61,3000,1.21,28.04,1.605,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Bunts Hostel Road,2018,Normal,0.8,57539,44649,1860.38,68684.0,53296.99,9:00-10:00 am,3790,4562.73,3000,1.521,25.56,1.761,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Bunts Hostel Road,2018,Peak,1.0,57539,57621,2400.88,68684.0,68781.77,9:00-10:00 am,4891,5888.37,3000,1.963,22.71,1.982,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Bunts Hostel Road,2018,High,1.2,57539,69685,2903.54,68684.0,83182.49,9:00-10:00 am,5915,7121.21,3000,2.374,20.58,2.187,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Bunts Hostel Road,2018,Very_High,1.4,57539,76901,3204.21,68684.0,91796.38,9:00-10:00 am,6527,7858.64,3000,2.62,19.48,2.31,Severe,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Attavar Road,2018,Low,0.6,7534,4569,190.38,9499.0,5760.69,9:00-10:00 am,532,652.54,2400,0.272,39.61,1.136,Low,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Attavar Road,2018,Normal,0.8,7534,5829,242.88,9499.0,7348.82,9:00-10:00 am,678,832.44,2400,0.347,38.35,1.173,Low,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Attavar Road,2018,Peak,1.0,7534,7206,300.25,9499.0,9085.84,9:00-10:00 am,839,1029.2,2400,0.429,37.05,1.215,Moderate,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Attavar Road,2018,High,1.2,7534,9447,393.62,9499.0,11910.48,9:00-10:00 am,1100,1349.16,2400,0.562,35.13,1.281,Moderate,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018
+Attavar Road,2018,Very_High,1.4,7534,11039,459.96,9499.0,13917.83,9:00-10:00 am,1285,1576.54,2400,0.657,33.87,1.329,High,Synthetic_Reference,Mangaluru Smart City Limited DPR-4 traffic survey 2018

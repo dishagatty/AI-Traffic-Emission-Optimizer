@@ -1,0 +1,17 @@
+<configuration>
+    <input>
+        <net-file value="../network/test_network_optimized.net.xml"/>
+        <route-files value="../routes/test_routes.rou.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+    </time>
+
+    <output>
+        <tripinfo-output value="../output/optimized_tripinfo.xml"/>
+        <summary-output value="../output/optimized_summary.xml"/>
+        <emission-output value="../output/optimized_emission.xml"/>
+    </output>
+</configuration>

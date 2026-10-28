@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <input>
+
+        <net-file value="C:\Users\LENOVO\OneDrive\Desktop\AI_Traffic_Project\sumo\network\test_network.net.xml"/>
+
+        <route-files value="C:\Users\LENOVO\OneDrive\Desktop\AI_Traffic_Project\sumo\routes\scenario_1502.rou.xml"/>
+
+    </input>
+
+    <output>
+
+        <tripinfo-output value="C:\Users\LENOVO\OneDrive\Desktop\AI_Traffic_Project\sumo\output\scenario_1502_tripinfo.xml"/>
+
+        <emission-output value="C:\Users\LENOVO\OneDrive\Desktop\AI_Traffic_Project\sumo\output\scenario_1502_emission.xml"/>
+
+        <summary-output value="C:\Users\LENOVO\OneDrive\Desktop\AI_Traffic_Project\sumo\output\scenario_1502_summary.xml"/>
+
+    </output>
+
+    <time>
+
+        <begin value="0"/>
+
+        <end value="300"/>
+
+    </time>
+
+</configuration>

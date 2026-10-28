@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routes>
+
+    <!-- Vehicle types -->
+    <vType
+        id="car"
+        accel="2.6"
+        decel="4.5"
+        sigma="0.5"
+        length="5"
+        minGap="2.5"
+        maxSpeed="13.89"
+    />
+
+    <!-- Routes -->
+
+    <route
+        id="north_to_south"
+        edges="north_to_center center_to_south"
+    />
+
+    <route
+        id="south_to_north"
+        edges="south_to_center center_to_north"
+    />
+
+    <route
+        id="east_to_west"
+        edges="east_to_center center_to_west"
+    />
+
+    <route
+        id="west_to_east"
+        edges="west_to_center center_to_east"
+    />
+
+
+    <!-- Vehicles -->
+
+    <vehicle
+        id="vehicle_north_1"
+        type="car"
+        route="north_to_south"
+        depart="0"
+    />
+
+    <vehicle
+        id="vehicle_south_1"
+        type="car"
+        route="south_to_north"
+        depart="5"
+    />
+
+    <vehicle
+        id="vehicle_east_1"
+        type="car"
+        route="east_to_west"
+        depart="10"
+    />
+
+    <vehicle
+        id="vehicle_west_1"
+        type="car"
+        route="west_to_east"
+        depart="15"
+    />
+
+</routes>

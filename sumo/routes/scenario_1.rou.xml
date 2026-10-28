@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<routes>
+
+
+    <vType
+        id="car"
+        accel="2.6"
+        decel="4.5"
+        sigma="0.5"
+        length="5"
+        minGap="2.5"
+        maxSpeed="13.89"
+    />
+
+
+    <route
+        id="north_to_south"
+        edges="north_to_center center_to_south"
+    />
+
+    <route
+        id="south_to_north"
+        edges="south_to_center center_to_north"
+    />
+
+    <route
+        id="east_to_west"
+        edges="east_to_center center_to_west"
+    />
+
+    <route
+        id="west_to_east"
+        edges="west_to_center center_to_east"
+    />
+
+    <vehicle id="vehicle_1" type="car" route="north_to_south" depart="0.00"/>
+    <vehicle id="vehicle_2" type="car" route="south_to_north" depart="1.09"/>
+    <vehicle id="vehicle_3" type="car" route="east_to_west" depart="2.19"/>
+    <vehicle id="vehicle_4" type="car" route="west_to_east" depart="3.28"/>
+    <vehicle id="vehicle_5" type="car" route="north_to_south" depart="4.37"/>
+    <vehicle id="vehicle_6" type="car" route="south_to_north" depart="5.46"/>
+    <vehicle id="vehicle_7" type="car" route="east_to_west" depart="6.56"/>
+    <vehicle id="vehicle_8" type="car" route="west_to_east" depart="7.65"/>
+    <vehicle id="vehicle_9" type="car" route="north_to_south" depart="8.74"/>
+    <vehicle id="vehicle_10" type="car" route="south_to_north" depart="9.83"/>
+    <vehicle id="vehicle_11" type="car" route="east_to_west" depart="10.93"/>
+    <vehicle id="vehicle_12" type="car" route="west_to_east" depart="12.02"/>
+    <vehicle id="vehicle_13" type="car" route="north_to_south" depart="13.11"/>
+    <vehicle id="vehicle_14" type="car" route="south_to_north" depart="14.20"/>
+    <vehicle id="vehicle_15" type="car" route="east_to_west" depart="15.30"/>
+    <vehicle id="vehicle_16" type="car" route="west_to_east" depart="16.39"/>
+    <vehicle id="vehicle_17" type="car" route="north_to_south" depart="17.48"/>
+    <vehicle id="vehicle_18" type="car" route="south_to_north" depart="18.57"/>
+    <vehicle id="vehicle_19" type="car" route="east_to_west" depart="19.67"/>
+    <vehicle id="vehicle_20" type="car" route="west_to_east" depart="20.76"/>
+    <vehicle id="vehicle_21" type="car" route="north_to_south" depart="21.85"/>
+    <vehicle id="vehicle_22" type="car" route="south_to_north" depart="22.94"/>
+    <vehicle id="vehicle_23" type="car" route="east_to_west" depart="24.04"/>
+    <vehicle id="vehicle_24" type="car" route="west_to_east" depart="25.13"/>
+    <vehicle id="vehicle_25" type="car" route="north_to_south" depart="26.22"/>
+    <vehicle id="vehicle_26" type="car" route="south_to_north" depart="27.31"/>
+    <vehicle id="vehicle_27" type="car" route="east_to_west" depart="28.41"/>
+    <vehicle id="vehicle_28" type="car" route="west_to_east" depart="29.50"/>
+    <vehicle id="vehicle_29" type="car" route="north_to_south" depart="30.59"/>
+    <vehicle id="vehicle_30" type="car" route="south_to_north" depart="31.68"/>
+    <vehicle id="vehicle_31" type="car" route="east_to_west" depart="32.78"/>
+    <vehicle id="vehicle_32" type="car" route="west_to_east" depart="33.87"/>
+    <vehicle id="vehicle_33" type="car" route="north_to_south" depart="34.96"/>
+    <vehicle id="vehicle_34" type="car" route="south_to_north" depart="36.05"/>
+    <vehicle id="vehicle_35" type="car" route="east_to_west" depart="37.15"/>
+    <vehicle id="vehicle_36" type="car" route="west_to_east" depart="38.24"/>
+    <vehicle id="vehicle_37" type="car" route="north_to_south" depart="39.33"/>
+    <vehicle id="vehicle_38" type="car" route="south_to_north" depart="40.42"/>
+    <vehicle id="vehicle_39" type="car" route="east_to_west" depart="41.52"/>
+    <vehicle id="vehicle_40" type="car" route="west_to_east" depart="42.61"/>
+    <vehicle id="vehicle_41" type="car" route="north_to_south" depart="43.70"/>
+    <vehicle id="vehicle_42" type="car" route="south_to_north" depart="44.80"/>
+    <vehicle id="vehicle_43" type="car" route="east_to_west" depart="45.89"/>
+    <vehicle id="vehicle_44" type="car" route="west_to_east" depart="46.98"/>
+    <vehicle id="vehicle_45" type="car" route="north_to_south" depart="48.07"/>
+    <vehicle id="vehicle_46" type="car" route="south_to_north" depart="49.17"/>
+    <vehicle id="vehicle_47" type="car" route="east_to_west" depart="50.26"/>
+    <vehicle id="vehicle_48" type="car" route="west_to_east" depart="51.35"/>
+    <vehicle id="vehicle_49" type="car" route="north_to_south" depart="52.44"/>
+    <vehicle id="vehicle_50" type="car" route="south_to_north" depart="53.54"/>
+    <vehicle id="vehicle_51" type="car" route="east_to_west" depart="54.63"/>
+    <vehicle id="vehicle_52" type="car" route="west_to_east" depart="55.72"/>
+    <vehicle id="vehicle_53" type="car" route="north_to_south" depart="56.81"/>
+    <vehicle id="vehicle_54" type="car" route="south_to_north" depart="57.91"/>
+    <vehicle id="vehicle_55" type="car" route="east_to_west" depart="59.00"/>
+    <vehicle id="vehicle_56" type="car" route="west_to_east" depart="60.09"/>
+    <vehicle id="vehicle_57" type="car" route="north_to_south" depart="61.18"/>
+    <vehicle id="vehicle_58" type="car" route="south_to_north" depart="62.28"/>
+    <vehicle id="vehicle_59" type="car" route="east_to_west" depart="63.37"/>
+    <vehicle id="vehicle_60" type="car" route="west_to_east" depart="64.46"/>
+    <vehicle id="vehicle_61" type="car" route="north_to_south" depart="65.55"/>
+    <vehicle id="vehicle_62" type="car" route="south_to_north" depart="66.65"/>
+    <vehicle id="vehicle_63" type="car" route="east_to_west" depart="67.74"/>
+    <vehicle id="vehicle_64" type="car" route="west_to_east" depart="68.83"/>
+    <vehicle id="vehicle_65" type="car" route="north_to_south" depart="69.92"/>
+    <vehicle id="vehicle_66" type="car" route="south_to_north" depart="71.02"/>
+    <vehicle id="vehicle_67" type="car" route="east_to_west" depart="72.11"/>
+    <vehicle id="vehicle_68" type="car" route="west_to_east" depart="73.20"/>
+    <vehicle id="vehicle_69" type="car" route="north_to_south" depart="74.29"/>
+    <vehicle id="vehicle_70" type="car" route="south_to_north" depart="75.39"/>
+    <vehicle id="vehicle_71" type="car" route="east_to_west" depart="76.48"/>
+    <vehicle id="vehicle_72" type="car" route="west_to_east" depart="77.57"/>
+    <vehicle id="vehicle_73" type="car" route="north_to_south" depart="78.66"/>
+    <vehicle id="vehicle_74" type="car" route="south_to_north" depart="79.76"/>
+    <vehicle id="vehicle_75" type="car" route="east_to_west" depart="80.85"/>
+    <vehicle id="vehicle_76" type="car" route="west_to_east" depart="81.94"/>
+    <vehicle id="vehicle_77" type="car" route="north_to_south" depart="83.03"/>
+    <vehicle id="vehicle_78" type="car" route="south_to_north" depart="84.13"/>
+    <vehicle id="vehicle_79" type="car" route="east_to_west" depart="85.22"/>
+    <vehicle id="vehicle_80" type="car" route="west_to_east" depart="86.31"/>
+    <vehicle id="vehicle_81" type="car" route="north_to_south" depart="87.41"/>
+    <vehicle id="vehicle_82" type="car" route="south_to_north" depart="88.50"/>
+    <vehicle id="vehicle_83" type="car" route="east_to_west" depart="89.59"/>
+    <vehicle id="vehicle_84" type="car" route="west_to_east" depart="90.68"/>
+    <vehicle id="vehicle_85" type="car" route="north_to_south" depart="91.78"/>
+    <vehicle id="vehicle_86" type="car" route="south_to_north" depart="92.87"/>
+    <vehicle id="vehicle_87" type="car" route="east_to_west" depart="93.96"/>
+    <vehicle id="vehicle_88" type="car" route="west_to_east" depart="95.05"/>
+    <vehicle id="vehicle_89" type="car" route="north_to_south" depart="96.15"/>
+    <vehicle id="vehicle_90" type="car" route="south_to_north" depart="97.24"/>
+    <vehicle id="vehicle_91" type="car" route="east_to_west" depart="98.33"/>
+    <vehicle id="vehicle_92" type="car" route="west_to_east" depart="99.42"/>
+
+</routes>

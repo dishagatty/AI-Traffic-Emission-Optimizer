@@ -1,0 +1,5 @@
+Scenario_ID,NorthSouth_Green_s,EastWest_Green_s,Average_Travel_Time_s,Average_Waiting_Time_s,Average_Time_Loss_s,Average_Speed_kmh,CO2_mg,CO_mg,NOx_mg,PMx_mg,Fuel_mg,Overall_Score
+Baseline,42,42,88.5,10.5,15.51,40.47,683451.08,3493.03,247.91,81.61,221567.25,0.0
+Intervention1,45,39,77.25,0.0,3.92,46.35,610869.77,3511.4,220.61,81.92,198036.96,100.0
+Intervention2,50,34,79.25,0.75,5.93,45.2,639774.8,3615.6,229.18,82.18,207407.44,76.10694251614657
+Intervention3,55,29,82.5,2.5,9.12,43.41,666554.81,3634.81,237.97,82.55,216089.14,46.69638248512384

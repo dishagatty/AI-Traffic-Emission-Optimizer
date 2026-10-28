@@ -1,0 +1,17 @@
+<configuration>
+    <input>
+        <net-file value="../network/test_network_intervention1.net.xml"/>
+        <route-files value="../routes/test_routes.rou.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+    </time>
+
+    <output>
+        <tripinfo-output value="../output/intervention1_tripinfo.xml"/>
+        <summary-output value="../output/intervention1_summary.xml"/>
+        <emission-output value="../output/intervention1_emission.xml"/>
+    </output>
+</configuration>
