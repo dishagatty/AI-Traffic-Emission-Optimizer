@@ -16,18 +16,26 @@ function TrafficMap({ onRoadSelect}) {
   const [selectedRoad, setSelectedRoad] = useState(null)
   const [loadingLive, setLoadingLive] = useState(false)
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/traffic-roads')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch traffic road data')
-        }
+  
+useEffect(() => {
+  const token = sessionStorage.getItem('access_token');
 
-        return response.json()
-      })
-      .then((data) => setRoads(data))
-      .catch((err) => setError(err.message))
-  }, [])
+  fetch('http://127.0.0.1:8000/traffic-roads', {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch traffic road data');
+      }
+
+      return response.json();
+    })
+    .then((data) => setRoads(data))
+    .catch((err) => setError(err.message));
+}, []);
+
 
   const handleRoadClick = (road) => {
     setSelectedRoad(road)
@@ -36,9 +44,16 @@ function TrafficMap({ onRoadSelect}) {
 
     onRoadSelect(road)
 
+    
     fetch(
-      `http://127.0.0.1:8000/live-traffic?latitude=${road.lat}&longitude=${road.lng}`
+      `http://127.0.0.1:8000/live-traffic?latitude=${road.lat}&longitude=${road.lng}`,
+      {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem('access_token')}`
+        }
+      }
     )
+
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch live traffic')

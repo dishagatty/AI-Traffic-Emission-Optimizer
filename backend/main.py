@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, Depends
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from pathlib import Path
@@ -8,6 +8,12 @@ import requests
 from dotenv import load_dotenv
 from pydantic import BaseModel
 from backend.tomtom_service import get_live_traffic
+from backend.auth import (
+    router as auth_router,
+    get_current_user,
+    require_admin,
+)
+from backend.models import User
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -25,6 +31,7 @@ app = FastAPI(
     description="Traffic intervention recommendation API",
     version="1.0.0"
 )
+app.include_router(auth_router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -46,7 +53,9 @@ def root():
     }
 
 @app.get("/recommendation")
-def recommendation():
+def recommendation(
+    current_user: User = Depends(require_admin)
+):
     return get_recommendation()
 
 @app.get("/health")
@@ -56,7 +65,9 @@ def health():
     }
 
 @app.get("/comparison")
-def comparison():
+def comparison(
+    current_user: User = Depends(require_admin)
+):
     file_path = (
         PROJECT_ROOT
         / "data"
@@ -69,7 +80,9 @@ def comparison():
     return df.to_dict(orient="records")
 
 @app.get("/traffic-roads")
-def get_traffic_roads():
+def get_traffic_roads(
+    current_user: User = Depends(get_current_user)
+):
     csv_path = (
         Path(__file__).resolve().parent.parent
         / "data"
@@ -139,7 +152,10 @@ class TrafficInput(BaseModel):
 
 
 @app.post("/predict")
-def predict_traffic(data: TrafficInput):
+def predict_traffic(
+    data: TrafficInput,
+    current_user: User = Depends(get_current_user)
+):
 
     input_data = data.dict()
 
@@ -149,12 +165,21 @@ def predict_traffic(data: TrafficInput):
 
 
 @app.get("/live-traffic")
-def live_traffic(latitude: float, longitude: float):
+def live_traffic(
+    latitude: float,
+    longitude: float,
+    current_user: User = Depends(get_current_user)
+):
     return get_live_traffic(latitude, longitude)
 
 
 @app.get("/tomtom-traffic-tile/{z}/{x}/{y}")
-def tomtom_traffic_tile(z: int, x: int, y: int):
+def tomtom_traffic_tile(
+    z: int,
+    x: int,
+    y: int,
+    current_user: User = Depends(get_current_user)
+):
     if not TOMTOM_API_KEY:
         return Response(
             content="TomTom API key is not configured",
