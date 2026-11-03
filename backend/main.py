@@ -1,17 +1,23 @@
-from fastapi import FastAPI, Response, Depends
+from fastapi import FastAPI, Response, Depends, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from pathlib import Path
 import sys
 import os
 import requests
+from typing import Literal
 from dotenv import load_dotenv
-from pydantic import BaseModel
-from backend.tomtom_service import get_live_traffic
+from pydantic import BaseModel, Field
+from backend.tomtom_service import (
+    RouteNotFoundError,
+    calculate_route,
+    geocode_place,
+    get_live_traffic,
+    reverse_geocode,
+)
 from backend.auth import (
     router as auth_router,
     get_current_user,
-    require_admin,
 )
 from backend.models import User
 
@@ -54,7 +60,7 @@ def root():
 
 @app.get("/recommendation")
 def recommendation(
-    current_user: User = Depends(require_admin)
+    current_user: User = Depends(get_current_user)
 ):
     return get_recommendation()
 
@@ -66,7 +72,7 @@ def health():
 
 @app.get("/comparison")
 def comparison(
-    current_user: User = Depends(require_admin)
+    current_user: User = Depends(get_current_user)
 ):
     file_path = (
         PROJECT_ROOT
@@ -130,7 +136,23 @@ def get_traffic_roads(
             "vcRatio": float(row["VC_Ratio"]),
             "speed": float(row["Estimated_Speed_kmph"]),
             "delay": float(row["Delay_Index"]),
-            "congestion": row["Congestion_Level"]
+            "congestion": row["Congestion_Level"],
+            "scenarioLevel": row["Scenario_Level"],
+            "peakPeriod": row["Peak_Hour"],
+            "features": {
+                feature: float(row[feature])
+                for feature in (
+                    "Traffic_Volume",
+                    "Average_Hourly_Vehicle_Count",
+                    "PCU",
+                    "Peak_Hour_Volume",
+                    "Peak_Hour_PCU",
+                    "Road_Capacity_PCU",
+                    "VC_Ratio",
+                    "Estimated_Speed_kmph",
+                    "Delay_Index",
+                )
+            },
         })
 
     return roads
@@ -149,6 +171,116 @@ class TrafficInput(BaseModel):
     VC_Ratio: float
     Estimated_Speed_kmph: float
     Delay_Index: float
+
+
+class RouteCoordinate(BaseModel):
+    latitude: float = Field(ge=12.6, le=13.1)
+    longitude: float = Field(ge=74.6, le=75.1)
+
+
+class RouteRequest(BaseModel):
+    origin: RouteCoordinate
+    destination: RouteCoordinate
+    travel_mode: Literal["car", "pedestrian", "bicycle"] = "car"
+
+
+@app.post("/route")
+def route(
+    data: RouteRequest,
+    current_user: User = Depends(get_current_user),
+):
+    if not os.getenv("TOMTOM_API_KEY"):
+        raise HTTPException(
+            status_code=503,
+            detail="Live route planning is unavailable because the routing provider is not configured.",
+        )
+
+    try:
+        return calculate_route(
+            data.origin.model_dump(),
+            data.destination.model_dump(),
+            data.travel_mode,
+        )
+    except RouteNotFoundError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
+    except requests.Timeout as error:
+        raise HTTPException(
+            status_code=504,
+            detail="The routing provider took too long to respond. Please try again.",
+        ) from error
+    except requests.RequestException as error:
+        raise HTTPException(
+            status_code=502,
+            detail="The live routing provider could not calculate this route.",
+        ) from error
+    except ValueError as error:
+        raise HTTPException(
+            status_code=502,
+            detail="The routing provider returned an invalid route response.",
+        ) from error
+
+
+@app.get("/reverse-geocode")
+def reverse_geocode_point(
+    latitude: float = Query(ge=12.6, le=13.1),
+    longitude: float = Query(ge=74.6, le=75.1),
+    current_user: User = Depends(get_current_user),
+):
+    if not os.getenv("TOMTOM_API_KEY"):
+        raise HTTPException(
+            status_code=503,
+            detail="Place names are unavailable because the geocoding provider is not configured.",
+        )
+
+    try:
+        return reverse_geocode(latitude, longitude)
+    except requests.Timeout as error:
+        raise HTTPException(
+            status_code=504,
+            detail="The place-name lookup took too long to respond.",
+        ) from error
+    except requests.RequestException as error:
+        raise HTTPException(
+            status_code=502,
+            detail="The geocoding provider could not identify this map point.",
+        ) from error
+    except ValueError as error:
+        raise HTTPException(
+            status_code=502,
+            detail="The geocoding provider returned an invalid place response.",
+        ) from error
+
+
+@app.get("/geocode")
+def geocode_place_name(
+    query: str = Query(min_length=2, max_length=200),
+    current_user: User = Depends(get_current_user),
+):
+    if not os.getenv("TOMTOM_API_KEY"):
+        raise HTTPException(
+            status_code=503,
+            detail="Place search is unavailable because the geocoding provider is not configured.",
+        )
+
+    try:
+        return geocode_place(query)
+    except RouteNotFoundError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
+    except requests.Timeout as error:
+        raise HTTPException(
+            status_code=504,
+            detail="The place search took too long to respond.",
+        ) from error
+    except requests.RequestException as error:
+        raise HTTPException(
+            status_code=502,
+            detail="The geocoding provider could not find this place.",
+        ) from error
+    except ValueError as error:
+        raise HTTPException(
+            status_code=502,
+            detail="The geocoding provider returned an invalid place response.",
+        ) from error
 
 
 @app.post("/predict")
@@ -191,13 +323,24 @@ def tomtom_traffic_tile(
         f"relative0/{z}/{x}/{y}.png"
     )
 
-    response = requests.get(
-        url,
-        params={
-            "key": TOMTOM_API_KEY
-        },
-        timeout=10
-    )
+    try:
+        response = requests.get(
+            url,
+            params={
+                "key": TOMTOM_API_KEY
+            },
+            timeout=10
+        )
+    except requests.Timeout as error:
+        raise HTTPException(
+            status_code=504,
+            detail="The live traffic tile took too long to respond.",
+        ) from error
+    except requests.RequestException as error:
+        raise HTTPException(
+            status_code=502,
+            detail="The live traffic tile could not be loaded.",
+        ) from error
 
     return Response(
         content=response.content,

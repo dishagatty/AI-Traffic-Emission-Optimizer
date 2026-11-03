@@ -1,6 +1,7 @@
 import joblib
 import pandas as pd
 from pathlib import Path
+from xgboost import DMatrix
 
 # Project root
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -36,10 +37,32 @@ def predict_congestion(input_data):
     probabilities = model.predict_proba(input_df)[0]
 
     confidence = float(max(probabilities))
+    predicted_class = int(prediction)
+    class_contributions = model.get_booster().predict(
+        DMatrix(input_df, feature_names=features),
+        pred_contribs=True,
+    )[0, predicted_class]
 
     return {
         "predicted_congestion": congestion,
-        "confidence": round(confidence * 100, 2)
+        "confidence": round(confidence * 100, 2),
+        "class_probabilities": {
+            str(label): round(float(probability) * 100, 2)
+            for label, probability in zip(label_encoder.classes_, probabilities)
+        },
+        "explanation": {
+            "method": "TreeSHAP (XGBoost pred_contribs)",
+            "base_value": round(float(class_contributions[-1]), 6),
+            "contribution_scale": "predicted-class raw margin",
+            "features": [
+                {
+                    "feature": feature,
+                    "value": float(input_data[feature]),
+                    "contribution": round(float(contribution), 6),
+                }
+                for feature, contribution in zip(features, class_contributions[:-1])
+            ],
+        },
     }
 
 if __name__ == "__main__":
